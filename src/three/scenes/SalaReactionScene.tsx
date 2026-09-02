@@ -6,6 +6,10 @@ import {
 } from "react";
 
 import {
+  onExperienceEvent,
+} from "@/experience/events/experienceEvents";
+
+import {
   Line,
   Text,
 } from "@react-three/drei";
@@ -34,9 +38,7 @@ export function SaleReactionScene() {
 
   const pulse = useRef(0);
 
-  const lastSaleId = useDemoStore(
-    (state) => state.lastSale?.id ?? null,
-  );
+ 
 
   const revenue = useDemoStore(
     (state) => state.revenue,
@@ -51,13 +53,28 @@ export function SaleReactionScene() {
   );
 
   useEffect(() => {
-    if (!lastSaleId) {
-      pulse.current = 0;
-      return;
-    }
+  const unsubscribeArrival =
+    onExperienceEvent(
+      "DATA_ARRIVED",
+      () => {
+        pulse.current = 1;
+      },
+    );
 
-    pulse.current = 1;
-  }, [lastSaleId]);
+  const unsubscribeReset =
+    onExperienceEvent(
+      "DEMO_RESET",
+      () => {
+        pulse.current = 0;
+      },
+    );
+
+  return () => {
+    unsubscribeArrival();
+    unsubscribeReset();
+  };
+}, []);
+
 
   useFrame((state, delta) => {
     if (

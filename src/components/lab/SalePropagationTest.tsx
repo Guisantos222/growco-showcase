@@ -1,16 +1,38 @@
 "use client";
 
-import { useRef, useState } from "react";
+import {
+  useRef,
+  useState,
+} from "react";
 
-import { gsap } from "gsap";
-import { MotionPathPlugin } from "gsap/MotionPathPlugin";
-import { useGSAP } from "@gsap/react";
+import {
+  gsap,
+} from "gsap";
 
-import { playSound } from "@/audio/soundManager";
-import { useDemoStore } from "@/store/demoStore";
-import { useSoundStore } from "@/store/soundStore";
+import {
+  MotionPathPlugin,
+} from "gsap/MotionPathPlugin";
 
-gsap.registerPlugin(useGSAP, MotionPathPlugin);
+import {
+  useGSAP,
+} from "@gsap/react";
+
+import {
+  emitExperienceEvent,
+} from "@/experience/events/experienceEvents";
+
+import {
+  SALE_TIMING,
+} from "@/experience/timelines/saleTiming";
+
+import {
+  useDemoStore,
+} from "@/store/demoStore";
+
+gsap.registerPlugin(
+  useGSAP,
+  MotionPathPlugin,
+);
 
 const FINANCE_PATH =
   "M 310 280 C 500 280 620 115 860 115";
@@ -22,54 +44,82 @@ const GOAL_PATH =
   "M 310 280 C 500 280 620 445 860 445";
 
 export function SalePropagationTest() {
-  const container = useRef<HTMLDivElement>(null);
+  const container =
+    useRef<HTMLDivElement>(
+      null,
+    );
 
-  const sourceModule = useRef<SVGGElement>(null);
+  const sourceModule =
+    useRef<SVGGElement>(
+      null,
+    );
 
-  const financeModule = useRef<SVGGElement>(null);
-  const stockModule = useRef<SVGGElement>(null);
-  const goalModule = useRef<SVGGElement>(null);
+  const financeModule =
+    useRef<SVGGElement>(
+      null,
+    );
 
-  const financePacket = useRef<SVGGElement>(null);
-  const stockPacket = useRef<SVGGElement>(null);
-  const goalPacket = useRef<SVGGElement>(null);
+  const stockModule =
+    useRef<SVGGElement>(
+      null,
+    );
 
-  const timeline = useRef<gsap.core.Timeline | null>(
-    null,
-  );
+  const goalModule =
+    useRef<SVGGElement>(
+      null,
+    );
 
-  const [isSequenceRunning, setIsSequenceRunning] =
-    useState(false);
+  const financePacket =
+    useRef<SVGGElement>(
+      null,
+    );
 
-  const revenue = useDemoStore(
-    (state) => state.revenue,
-  );
+  const stockPacket =
+    useRef<SVGGElement>(
+      null,
+    );
 
-  const stock = useDemoStore(
-    (state) => state.stock,
-  );
+  const goalPacket =
+    useRef<SVGGElement>(
+      null,
+    );
 
-  const goalProgress = useDemoStore(
-    (state) => state.goalProgress,
-  );
+  const timeline =
+    useRef<
+      gsap.core.Timeline | null
+    >(null);
 
-  const registerSale = useDemoStore(
-    (state) => state.registerSale,
-  );
+  const [
+    isSequenceRunning,
+    setIsSequenceRunning,
+  ] = useState(false);
 
-  const resetDemo = useDemoStore(
-    (state) => state.resetDemo,
-  );
+  const revenue =
+    useDemoStore(
+      (state) =>
+        state.revenue,
+    );
 
-  const soundEnabled = useSoundStore(
-    (state) => state.enabled,
-  );
+  const stock =
+    useDemoStore(
+      (state) =>
+        state.stock,
+    );
+
+  const goalProgress =
+    useDemoStore(
+      (state) =>
+        state.goalProgress,
+    );
 
   const formattedRevenue =
-    new Intl.NumberFormat("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    }).format(revenue);
+    new Intl.NumberFormat(
+      "pt-BR",
+      {
+        style: "currency",
+        currency: "BRL",
+      },
+    ).format(revenue);
 
   useGSAP(
     () => {
@@ -79,11 +129,15 @@ export function SalePropagationTest() {
         goalPacket.current,
       ].filter(Boolean);
 
-      gsap.set(packets, {
-        opacity: 0,
-        scale: 0.4,
-        transformOrigin: "50% 50%",
-      });
+      gsap.set(
+        packets,
+        {
+          opacity: 0,
+          scale: 0.4,
+          transformOrigin:
+            "50% 50%",
+        },
+      );
 
       return () => {
         timeline.current?.kill();
@@ -94,88 +148,125 @@ export function SalePropagationTest() {
     },
   );
 
-  function playIfEnabled(
-    sound:
-      | "dataSend"
-      | "dataArrive"
-      | "success",
-  ) {
-    if (soundEnabled) {
-      playSound(sound);
-    }
-  }
-
   function handleSale() {
-    if (isSequenceRunning) {
-      return;
-    }
-
-    if (stock < 2) {
-      return;
-    }
-
-    const packets = [
-      financePacket.current,
-      stockPacket.current,
-      goalPacket.current,
-    ];
-
     if (
-      !financePacket.current ||
-      !stockPacket.current ||
-      !goalPacket.current ||
-      !financeModule.current ||
-      !stockModule.current ||
-      !goalModule.current
+      isSequenceRunning
     ) {
       return;
     }
 
-    setIsSequenceRunning(true);
+    if (
+      stock < 2
+    ) {
+      return;
+    }
+
+    const source =
+      sourceModule.current;
+
+    const finance =
+      financeModule.current;
+
+    const stockTarget =
+      stockModule.current;
+
+    const goal =
+      goalModule.current;
+
+    const financeData =
+      financePacket.current;
+
+    const stockData =
+      stockPacket.current;
+
+    const goalData =
+      goalPacket.current;
+
+    if (
+      !source ||
+      !finance ||
+      !stockTarget ||
+      !goal ||
+      !financeData ||
+      !stockData ||
+      !goalData
+    ) {
+      return;
+    }
+
+    setIsSequenceRunning(
+      true,
+    );
 
     timeline.current?.kill();
 
-    gsap.set(packets, {
-      opacity: 0,
-      scale: 0.4,
-      x: 0,
-      y: 0,
-      transformOrigin: "50% 50%",
-    });
+    const packets = [
+      financeData,
+      stockData,
+      goalData,
+    ];
+
+    gsap.set(
+      packets,
+      {
+        opacity: 0,
+        scale: 0.4,
+        x: 0,
+        y: 0,
+        transformOrigin:
+          "50% 50%",
+      },
+    );
 
     const sale = {
       id: crypto.randomUUID(),
-      product: "Café Especial",
+      product:
+        "Café Especial",
       quantity: 2,
       total: 119.8,
     };
 
-    timeline.current = gsap.timeline({
-      defaults: {
-        ease: "power2.inOut",
+    const tl =
+      gsap.timeline({
+        defaults: {
+          ease:
+            "power2.inOut",
+        },
+
+        onComplete: () => {
+          setIsSequenceRunning(
+            false,
+          );
+        },
+      });
+
+    timeline.current =
+      tl;
+
+    tl.call(
+      () => {
+        emitExperienceEvent(
+          "SALE_STARTED",
+          {
+            sale,
+          },
+        );
       },
-
-      onComplete: () => {
-        setIsSequenceRunning(false);
-      },
-    });
-
-    const tl = timeline.current;
-
-    tl.call(() => {
-      playIfEnabled("dataSend");
-    }, [], 0);
+      [],
+      SALE_TIMING.start,
+    );
 
     tl.to(
-      sourceModule.current,
+      source,
       {
         scale: 1.035,
         duration: 0.18,
-        transformOrigin: "50% 50%",
+        transformOrigin:
+          "50% 50%",
         yoyo: true,
         repeat: 1,
       },
-      0,
+      SALE_TIMING.sourcePulse,
     );
 
     tl.to(
@@ -186,84 +277,112 @@ export function SalePropagationTest() {
         duration: 0.18,
         stagger: 0.04,
       },
-      0.16,
-    );
-
-    tl.to(
-      financePacket.current,
-      {
-        duration: 0.82,
-
-        motionPath: {
-          path: FINANCE_PATH,
-          start: 0,
-          end: 1,
-        },
-      },
-      0.34,
-    );
-
-    tl.to(
-      stockPacket.current,
-      {
-        duration: 0.82,
-
-        motionPath: {
-          path: STOCK_PATH,
-          start: 0,
-          end: 1,
-        },
-      },
-      0.34,
-    );
-
-    tl.to(
-      goalPacket.current,
-      {
-        duration: 0.82,
-
-        motionPath: {
-          path: GOAL_PATH,
-          start: 0,
-          end: 1,
-        },
-      },
-      0.34,
+      SALE_TIMING.packetsReveal,
     );
 
     tl.call(
       () => {
-        registerSale(sale);
-
-        playIfEnabled("dataArrive");
+        emitExperienceEvent(
+          "DATA_TRAVELING",
+          {
+            sale,
+          },
+        );
       },
       [],
-      1.16,
+      SALE_TIMING.travelStart,
+    );
+
+    tl.to(
+      financeData,
+      {
+        duration:
+          SALE_TIMING.travelDuration,
+
+        motionPath: {
+          path:
+            FINANCE_PATH,
+          start: 0,
+          end: 1,
+        },
+      },
+      SALE_TIMING.travelStart,
+    );
+
+    tl.to(
+      stockData,
+      {
+        duration:
+          SALE_TIMING.travelDuration,
+
+        motionPath: {
+          path:
+            STOCK_PATH,
+          start: 0,
+          end: 1,
+        },
+      },
+      SALE_TIMING.travelStart,
+    );
+
+    tl.to(
+      goalData,
+      {
+        duration:
+          SALE_TIMING.travelDuration,
+
+        motionPath: {
+          path:
+            GOAL_PATH,
+          start: 0,
+          end: 1,
+        },
+      },
+      SALE_TIMING.travelStart,
+    );
+
+    tl.call(
+      () => {
+        emitExperienceEvent(
+          "DATA_ARRIVED",
+          {
+            sale,
+          },
+        );
+      },
+      [],
+      SALE_TIMING.arrival,
     );
 
     tl.to(
       [
-        financeModule.current,
-        stockModule.current,
-        goalModule.current,
+        finance,
+        stockTarget,
+        goal,
       ],
       {
         scale: 1.035,
         duration: 0.16,
-        transformOrigin: "50% 50%",
+        transformOrigin:
+          "50% 50%",
         yoyo: true,
         repeat: 1,
         stagger: 0.06,
       },
-      1.16,
+      SALE_TIMING.moduleReaction,
     );
 
     tl.call(
       () => {
-        playIfEnabled("success");
+        emitExperienceEvent(
+          "SALE_COMPLETED",
+          {
+            sale,
+          },
+        );
       },
       [],
-      1.48,
+      SALE_TIMING.completed,
     );
 
     tl.to(
@@ -273,16 +392,29 @@ export function SalePropagationTest() {
         scale: 0.25,
         duration: 0.22,
       },
-      1.52,
+      SALE_TIMING.packetsHide,
+    );
+
+    tl.call(
+      () => {
+        emitExperienceEvent(
+          "AI_INSIGHT_READY",
+          {
+            sale,
+          },
+        );
+      },
+      [],
+      SALE_TIMING.insightReady,
     );
   }
 
   function handleReset() {
     timeline.current?.kill();
 
-    setIsSequenceRunning(false);
-
-    resetDemo();
+    setIsSequenceRunning(
+      false,
+    );
 
     gsap.set(
       [
@@ -296,6 +428,11 @@ export function SalePropagationTest() {
         x: 0,
         y: 0,
       },
+    );
+
+    emitExperienceEvent(
+      "DEMO_RESET",
+      undefined,
     );
   }
 
@@ -314,9 +451,7 @@ export function SalePropagationTest() {
         </h1>
 
         <p className="mt-6 text-lg leading-relaxed text-neutral-400">
-          Uma operação deixa de ser uma ação isolada e
-          passa a repercutir por diferentes áreas da
-          empresa.
+          Uma operação deixa de ser uma ação isolada e passa a repercutir por diferentes áreas da empresa.
         </p>
       </header>
 
@@ -347,8 +482,6 @@ export function SalePropagationTest() {
             </filter>
           </defs>
 
-          {/* CONNECTIONS */}
-
           <path
             d={FINANCE_PATH}
             fill="none"
@@ -370,9 +503,9 @@ export function SalePropagationTest() {
             strokeWidth="3"
           />
 
-          {/* SOURCE */}
-
-          <g ref={sourceModule}>
+          <g
+            ref={sourceModule}
+          >
             <rect
               x="60"
               y="210"
@@ -412,9 +545,9 @@ export function SalePropagationTest() {
             </text>
           </g>
 
-          {/* FINANCE */}
-
-          <g ref={financeModule}>
+          <g
+            ref={financeModule}
+          >
             <rect
               x="860"
               y="50"
@@ -445,9 +578,9 @@ export function SalePropagationTest() {
             </text>
           </g>
 
-          {/* STOCK */}
-
-          <g ref={stockModule}>
+          <g
+            ref={stockModule}
+          >
             <rect
               x="860"
               y="215"
@@ -478,9 +611,9 @@ export function SalePropagationTest() {
             </text>
           </g>
 
-          {/* GOAL */}
-
-          <g ref={goalModule}>
+          <g
+            ref={goalModule}
+          >
             <rect
               x="860"
               y="380"
@@ -511,9 +644,9 @@ export function SalePropagationTest() {
             </text>
           </g>
 
-          {/* DATA PACKETS */}
-
-          <g ref={financePacket}>
+          <g
+            ref={financePacket}
+          >
             <circle
               r="18"
               fill="#0BA5FF"
@@ -531,7 +664,9 @@ export function SalePropagationTest() {
             </text>
           </g>
 
-          <g ref={stockPacket}>
+          <g
+            ref={stockPacket}
+          >
             <circle
               r="18"
               fill="#0BA5FF"
@@ -549,7 +684,9 @@ export function SalePropagationTest() {
             </text>
           </g>
 
-          <g ref={goalPacket}>
+          <g
+            ref={goalPacket}
+          >
             <circle
               r="18"
               fill="#0BA5FF"

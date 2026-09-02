@@ -1,13 +1,29 @@
 "use client";
 
-import { useRef } from "react";
+import {
+  useRef,
+  useState,
+} from "react";
 
-import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
+import {
+  gsap,
+} from "gsap";
 
-import { useDemoStore } from "@/store/demoStore";
+import {
+  useGSAP,
+} from "@gsap/react";
 
-gsap.registerPlugin(useGSAP);
+import {
+  useExperienceEvent,
+} from "@/experience/hooks/useExperienceEvent";
+
+import {
+  useDemoStore,
+} from "@/store/demoStore";
+
+gsap.registerPlugin(
+  useGSAP,
+);
 
 export function SaleInsight() {
   const panel =
@@ -33,15 +49,50 @@ export function SaleInsight() {
       (state) => state.goalProgress,
     );
 
+  const [
+    insightReady,
+    setInsightReady,
+  ] = useState(false);
+
   const formattedRevenue =
     new Intl.NumberFormat("pt-BR", {
       style: "currency",
       currency: "BRL",
     }).format(revenue);
 
+  useExperienceEvent(
+    "SALE_STARTED",
+    () => {
+      setInsightReady(
+        false,
+      );
+    },
+  );
+
+  useExperienceEvent(
+    "AI_INSIGHT_READY",
+    () => {
+      setInsightReady(
+        true,
+      );
+    },
+  );
+
+  useExperienceEvent(
+    "DEMO_RESET",
+    () => {
+      setInsightReady(
+        false,
+      );
+    },
+  );
+
   useGSAP(
     () => {
-      if (!lastSale) {
+      if (
+        !lastSale ||
+        !insightReady
+      ) {
         return;
       }
 
@@ -64,6 +115,7 @@ export function SaleInsight() {
     {
       dependencies: [
         lastSale?.id,
+        insightReady,
       ],
       scope: panel,
     },
@@ -94,7 +146,19 @@ export function SaleInsight() {
         <p className="mt-8 max-w-2xl text-neutral-400">
           Realize uma venda para que a growAI interprete as mudanças da operação.
         </p>
+      ) : !insightReady ? (
+        <div className="mt-8">
+          <p className="text-sm uppercase tracking-[0.2em] text-[#0BA5FF]">
+            Processing
+          </p>
+
+          <p className="mt-3 text-neutral-400">
+            Analisando as repercussões da operação...
+          </p>
+        </div>
       ) : (
+
+
         <div className="mt-8">
           <h2 className="text-2xl font-semibold">
             A operação repercutiu em toda a empresa.
