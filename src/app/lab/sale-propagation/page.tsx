@@ -4,6 +4,7 @@ import { MiniRevenueChart } from "@/components/lab/MiniRevenueChart";
 import { SaleInsight } from "@/components/lab/SaleInsight";
 import { SalePropagationTest } from "@/components/lab/SalePropagationTest";
 import { SoundToggle } from "@/components/lab/SoundToggle";
+import { SpatialReactionTest } from "@/components/lab/SpatialReactionTest";
 
 export default function SalePropagationLabPage() {
   return (
@@ -18,6 +19,10 @@ export default function SalePropagationLabPage() {
         <MiniRevenueChart />
 
         <SaleInsight />
+      </div>
+
+      <div className="mx-auto mt-6 max-w-7xl">
+        <SpatialReactionTest />
       </div>
     </main>
   );
