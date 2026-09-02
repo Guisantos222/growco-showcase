@@ -1,5 +1,7 @@
 "use client";
 
+
+
 import {
   CartesianGrid,
   Line,
@@ -11,12 +13,17 @@ import {
 } from "recharts";
 
 import { useDemoStore } from "@/store/demoStore";
+import { playSound } from "@/audio/soundManager";
+import { useSoundStore } from "@/store/soundStore";
 
 export function ChartTest() {
   const revenue = useDemoStore((state) => state.revenue);
   const stock = useDemoStore((state) => state.stock);
   const goalProgress = useDemoStore((state) => state.goalProgress);
 
+  const soundEnabled = useSoundStore(
+  (state) => state.enabled,
+    );
   const revenueHistory = useDemoStore(
     (state) => state.revenueHistory,
   );
@@ -33,14 +40,32 @@ export function ChartTest() {
     (state) => state.saleError,
   );
 
-  function handleSale() {
-    registerSale({
-      id: crypto.randomUUID(),
-      product: "Café Especial",
-      quantity: 2,
-      total: 119.8,
-    });
+ function handleSale() {
+  if (stock < 2) {
+    return;
   }
+
+  if (soundEnabled) {
+    playSound("dataSend");
+  }
+
+  registerSale({
+    id: crypto.randomUUID(),
+    product: "Café Especial",
+    quantity: 2,
+    total: 119.8,
+  });
+
+  if (soundEnabled) {
+    window.setTimeout(() => {
+      playSound("dataArrive");
+    }, 220);
+
+    window.setTimeout(() => {
+      playSound("success");
+    }, 420);
+  }
+}
 
   const formattedRevenue = new Intl.NumberFormat("pt-BR", {
     style: "currency",
