@@ -8,7 +8,6 @@
     "english": "English",
     "cta": "Start for free"
   },
-
   "Showcase": {
     "navigation": {
       "product": "Product",
@@ -18,21 +17,38 @@
       "soundOn": "Sound on",
       "soundOff": "Sound off"
     },
-
     "foundation": {
       "eyebrow": "growCo. Showcase",
       "status": "Production foundation",
       "title": "The experience starts here.",
       "description": "The public growCo. foundation is ready. From this point forward, every scene will be built to remain in the final experience.",
-
       "productTitle": "Product",
       "productDescription": "An integrated view of the operation.",
-
       "demoTitle": "Demo",
       "demoDescription": "An interactive experience of the system.",
-
       "pricingTitle": "Pricing",
       "pricingDescription": "A clear structure for different stages of growth."
+    },
+    "chaos": {
+      "moving": "Your business is moving.",
+      "everySecond": "Every second.",
+      "tooMuch": "TOO MUCH DATA.",
+      "notEnough": "NOT ENOUGH CLARITY.",
+      "question": "What if everything was connected?",
+      "items": {
+        "sale": "Sale",
+        "stock": "Stock",
+        "message": "Message",
+        "spreadsheet": "Spreadsheet",
+        "goal": "Goal",
+        "invoice": "Due date",
+        "employee": "Team",
+        "report": "Report",
+        "payment": "Payment",
+        "order": "Order",
+        "cashflow": "Revenue",
+        "schedule": "Schedule"
+      }
     }
   }
 }
