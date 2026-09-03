@@ -77,12 +77,21 @@ const experiments = [
     icon: Route,
   },
   {
-  title: "Spatial Stage",
-  description:
-    "Profundidade, câmera, camadas e parallax.",
-  href: "/lab/spatial-stage",
-  icon: Layers,
-},
+    title: "Spatial Stage",
+    description:
+      "Profundidade, câmera, camadas e parallax.",
+    href: "/lab/spatial-stage",
+    icon: Layers,
+
+  },
+
+  {
+    title: "Spatial Transition",
+    description:
+      "Passagem contínua entre ambientes tridimensionais.",
+    href: "/lab/spatial-transition",
+    icon: Layers,
+  },
 ];
 
 export default function LabPage() {
