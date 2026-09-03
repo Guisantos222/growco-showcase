@@ -7,5 +7,32 @@
     "portuguese": "Português",
     "english": "Inglês",
     "cta": "Começar gratuitamente"
+  },
+
+  "Showcase": {
+    "navigation": {
+      "product": "Produto",
+      "demo": "Demo",
+      "pricing": "Planos",
+      "cta": "Conhecer growCo.",
+      "soundOn": "Som ligado",
+      "soundOff": "Som desligado"
+    },
+
+    "foundation": {
+      "eyebrow": "growCo. Showcase",
+      "status": "Production foundation",
+      "title": "A experiência começa aqui.",
+      "description": "A fundação pública da growCo. está pronta. A partir daqui, cada cena será construída para permanecer na experiência final.",
+
+      "productTitle": "Produto",
+      "productDescription": "Uma visão integrada da operação.",
+
+      "demoTitle": "Demo",
+      "demoDescription": "Uma experiência interativa do sistema.",
+
+      "pricingTitle": "Planos",
+      "pricingDescription": "Estrutura clara para diferentes estágios de crescimento."
+    }
   }
 }
