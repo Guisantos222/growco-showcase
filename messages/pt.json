@@ -29,7 +29,6 @@
       "pricingTitle": "Planos",
       "pricingDescription": "Estrutura clara para diferentes estágios de crescimento."
     },
-
     "chaos": {
       "moving": "Sua empresa está em movimento.",
       "everySecond": "A cada segundo.",
@@ -48,6 +47,34 @@
         "payment": "Pagamento",
         "order": "Pedido",
         "cashflow": "Receita",
+        "schedule": "Agenda"
+      }
+    },
+    "control": {
+      "question": "E se tudo estivesse conectado?",
+      "organizing": "A informação encontra seu lugar.",
+      "onePlace": "UM SÓ LUGAR.",
+      "connected": "Tudo conectado.",
+      "modules": {
+        "sales": "Vendas",
+        "stock": "Estoque",
+        "finance": "Financeiro",
+        "people": "Pessoas",
+        "goals": "Metas",
+        "reports": "Relatórios"
+      },
+      "items": {
+        "sale": "Venda",
+        "stock": "Estoque",
+        "payment": "Pagamento",
+        "message": "Mensagem",
+        "goal": "Meta",
+        "report": "Relatório",
+        "spreadsheet": "Planilha",
+        "employee": "Equipe",
+        "order": "Pedido",
+        "cashflow": "Receita",
+        "invoice": "Vencimento",
         "schedule": "Agenda"
       }
     }

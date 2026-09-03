@@ -7,6 +7,10 @@ import {
 } from "@/components/showcase/scenes/chaos/ChaosScene";
 
 import {
+    ControlScene,
+} from "@/components/showcase/scenes/control/ControlScene";
+
+import {
     ShowcaseShell,
 } from "@/components/showcase/ShowcaseShell";
 
@@ -19,6 +23,8 @@ export default async function ShowcasePage() {
     return (
         <ShowcaseShell>
             <ChaosScene />
+
+            <ControlScene />
 
             <FoundationSection
                 id="product"

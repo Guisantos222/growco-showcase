@@ -49,6 +49,34 @@
         "cashflow": "Revenue",
         "schedule": "Schedule"
       }
+    },
+    "control": {
+      "question": "What if everything was connected?",
+      "organizing": "Information finds its place.",
+      "onePlace": "ONE PLACE.",
+      "connected": "Everything connected.",
+      "modules": {
+        "sales": "Sales",
+        "stock": "Stock",
+        "finance": "Finance",
+        "people": "People",
+        "goals": "Goals",
+        "reports": "Reports"
+      },
+      "items": {
+        "sale": "Sale",
+        "stock": "Stock",
+        "payment": "Payment",
+        "message": "Message",
+        "goal": "Goal",
+        "report": "Report",
+        "spreadsheet": "Spreadsheet",
+        "employee": "Team",
+        "order": "Order",
+        "cashflow": "Revenue",
+        "invoice": "Due date",
+        "schedule": "Schedule"
+      }
     }
   }
 }
