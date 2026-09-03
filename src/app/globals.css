@@ -1,1 +1,42 @@
 @import "tailwindcss";
+
+:root {
+  /* BRAND */
+
+  --gc-blue: #0ba5ff;
+  --gc-blue-soft: rgba(11, 165, 255, 0.12);
+  --gc-blue-border: rgba(11, 165, 255, 0.3);
+
+  /* BACKGROUNDS */
+
+  --gc-background: #080a10;
+  --gc-background-soft: #090b12;
+
+  /* SURFACES */
+
+  --gc-surface-1: #111721;
+  --gc-surface-2: #141a25;
+  --gc-surface-3: #171d2a;
+
+  /* TEXT */
+
+  --gc-text: #f7f8fa;
+  --gc-text-muted: #8d96a7;
+  --gc-text-subtle: #5d6573;
+
+  /* BORDERS */
+
+  --gc-border: rgba(255, 255, 255, 0.1);
+  --gc-border-soft: rgba(255, 255, 255, 0.06);
+
+  /* RADIUS */
+
+  --gc-radius-sm: 1rem;
+  --gc-radius-md: 1.5rem;
+  --gc-radius-lg: 2rem;
+
+  /* MOTION */
+
+  --gc-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --gc-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+}

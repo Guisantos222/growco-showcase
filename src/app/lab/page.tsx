@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+
+import { RuntimeStatus } from "@/components/lab/RuntimeStatus";
+
 
 import {
   AudioLines,
@@ -111,7 +113,13 @@ export default function LabPage() {
             Ambiente isolado para desenvolvimento e validação das tecnologias,
             comportamentos e experiências da showcase.
           </p>
+
+          <div className="mt-6 inline-flex items-center rounded-full border border-[#0BA5FF]/25 bg-[#0BA5FF]/10 px-4 py-2 text-xs uppercase tracking-[0.18em] text-[#0BA5FF]">
+            Foundation complete · Lab frozen
+          </div>
         </header>
+
+        <RuntimeStatus />
 
         <section className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {experiments.map(({ title, description, href, icon: Icon }) => (
