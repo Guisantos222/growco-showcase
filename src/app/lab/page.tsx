@@ -7,6 +7,7 @@ import {
   Boxes,
   Braces,
   Languages,
+  Layers,
   MousePointer2,
   Orbit,
   Route,
@@ -75,6 +76,13 @@ const experiments = [
     href: "/lab/sale-propagation",
     icon: Route,
   },
+  {
+  title: "Spatial Stage",
+  description:
+    "Profundidade, câmera, camadas e parallax.",
+  href: "/lab/spatial-stage",
+  icon: Layers,
+},
 ];
 
 export default function LabPage() {
