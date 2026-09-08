@@ -1,16 +1,10 @@
-type ExperienceStageProps = {
-  children:
-    React.ReactNode;
-};
-
 export function ExperienceStage({
   children,
-}: ExperienceStageProps) {
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <main
-      id="experience"
-      className="relative isolate overflow-clip"
-    >
+    <main className="relative isolate">
       {children}
     </main>
   );

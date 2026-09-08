@@ -48,6 +48,95 @@
         "order": "Order",
         "cashflow": "Revenue",
         "schedule": "Schedule"
+      },
+      "micro": {
+        "pending": "PENDING",
+        "updated": "UPDATED",
+        "error": "ERROR",
+        "today": "TODAY",
+        "pix": "PIX",
+        "invoice": "INVOICE",
+        "goal": "GOAL",
+        "messages": "NEW MESSAGES",
+        "stockLow": "LOW STOCK",
+        "sale": "SALE",
+        "order": "ORDER",
+        "report": "REPORT",
+        "approved": "APPROVED",
+        "processing": "PROCESSING",
+        "late": "OVERDUE",
+        "sync": "SYNCING",
+        "cash": "CASH",
+        "employee": "EMPLOYEE",
+        "alert": "ALERT",
+        "new": "NEW"
+      },
+      "hotTopics": {
+        "finance": {
+          "eyebrow": "FINANCE",
+          "title": "Disconnected flow",
+          "detail": "Money in and out fails to react together"
+        },
+        "stock": {
+          "eyebrow": "OPERATIONS",
+          "title": "Inventory without context",
+          "detail": "Change happens before information arrives"
+        },
+        "communication": {
+          "eyebrow": "COMMUNICATION",
+          "title": "Scattered information",
+          "detail": "Decisions get lost between channels"
+        },
+        "management": {
+          "eyebrow": "MANAGEMENT",
+          "title": "Fragmented visibility",
+          "detail": "Reports arrive after the problem"
+        },
+        "goals": {
+          "eyebrow": "GOALS",
+          "title": "Progress without reaction",
+          "detail": "The number changes. Operations do not."
+        },
+        "people": {
+          "eyebrow": "PEOPLE",
+          "title": "Teams outside the flow",
+          "detail": "Actions remain isolated from operations"
+        }
+      },
+      "brand": {
+        "tagline": "From operational chaos to real-time clarity."
+      },
+      "narrative": {
+        "signal": {
+          "eyebrow": "01 — MOTION",
+          "before": "YOUR BUSINESS",
+          "accent": "NEVER STOPS.",
+          "detail": "Sales, messages, inventory, people and goals keep changing."
+        },
+        "fragmentation": {
+          "eyebrow": "02 — FRAGMENTATION",
+          "before": "EVERY AREA REACTS",
+          "accent": "ON ITS OWN.",
+          "detail": "Operations keep moving, but the parts stop responding to one another."
+        },
+        "reaction": {
+          "eyebrow": "03 — CHAIN REACTION",
+          "before": "THE PROBLEM DOESN'T STAY",
+          "accent": "WHERE IT STARTED.",
+          "detail": "A local change spreads across sales, inventory, finance, goals and teams."
+        },
+        "noise": {
+          "eyebrow": "04 — OVERLOAD",
+          "before": "MORE SIGNALS.",
+          "accent": "LESS CONTEXT.",
+          "detail": "The information exists. The challenge is seeing what is connected to what."
+        },
+        "disconnect": {
+          "eyebrow": "05 — THE REAL PROBLEM",
+          "before": "DATA ISN'T MISSING.",
+          "accent": "CONNECTION IS.",
+          "detail": "When systems do not communicate, decisions arrive after the impact."
+        }
       }
     },
     "control": {

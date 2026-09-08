@@ -1,38 +1,42 @@
 import {
-  SoundController,
+    SoundController,
 } from "@/audio/SoundController";
 
 import {
-  ExperienceStage,
+    ExperienceStage,
 } from "@/components/showcase/ExperienceStage";
 
 import {
-  GlobalNavigation,
+    GlobalNavigation,
 } from "@/components/showcase/GlobalNavigation";
 
 import {
-  RuntimeBridge,
+    RuntimeBridge,
 } from "@/components/showcase/RuntimeBridge";
 
+import {
+    SmoothScrollProvider,
+} from "@/experience/scroll/SmoothScrollProvider";
+
 type ShowcaseShellProps = {
-  children:
+    children:
     React.ReactNode;
 };
 
 export function ShowcaseShell({
-  children,
+    children,
 }: ShowcaseShellProps) {
-  return (
-    <>
-      <RuntimeBridge />
+    return (
+        <SmoothScrollProvider>
+            <RuntimeBridge />
 
-      <SoundController />
+            <SoundController />
 
-      <GlobalNavigation />
+            <GlobalNavigation />
 
-      <ExperienceStage>
-        {children}
-      </ExperienceStage>
-    </>
-  );
+            <ExperienceStage>
+                {children}
+            </ExperienceStage>
+        </SmoothScrollProvider>
+    );
 }

@@ -48,6 +48,95 @@
         "order": "Pedido",
         "cashflow": "Receita",
         "schedule": "Agenda"
+      },
+      "micro": {
+        "pending": "PENDENTE",
+        "updated": "ATUALIZADO",
+        "error": "ERRO",
+        "today": "HOJE",
+        "pix": "PIX",
+        "invoice": "BOLETO",
+        "goal": "META",
+        "messages": "NOVAS MENSAGENS",
+        "stockLow": "ESTOQUE BAIXO",
+        "sale": "VENDA",
+        "order": "PEDIDO",
+        "report": "RELATÓRIO",
+        "approved": "APROVADO",
+        "processing": "PROCESSANDO",
+        "late": "ATRASADO",
+        "sync": "SINCRONIZANDO",
+        "cash": "CAIXA",
+        "employee": "FUNCIONÁRIO",
+        "alert": "ALERTA",
+        "new": "NOVO"
+      },
+      "hotTopics": {
+        "finance": {
+          "eyebrow": "FINANCEIRO",
+          "title": "Fluxo desconectado",
+          "detail": "Entradas e saídas não reagem juntas"
+        },
+        "stock": {
+          "eyebrow": "OPERAÇÃO",
+          "title": "Estoque sem contexto",
+          "detail": "A mudança acontece antes da informação"
+        },
+        "communication": {
+          "eyebrow": "COMUNICAÇÃO",
+          "title": "Informação dispersa",
+          "detail": "Decisões se perdem entre canais"
+        },
+        "management": {
+          "eyebrow": "GESTÃO",
+          "title": "Visão fragmentada",
+          "detail": "Os relatórios chegam depois do problema"
+        },
+        "goals": {
+          "eyebrow": "METAS",
+          "title": "Progresso sem reação",
+          "detail": "O número muda. A operação não responde."
+        },
+        "people": {
+          "eyebrow": "PESSOAS",
+          "title": "Equipe fora do fluxo",
+          "detail": "Ações isoladas do restante da operação"
+        }
+      },
+      "brand": {
+        "tagline": "Do caos operacional à clareza em tempo real."
+      },
+      "narrative": {
+        "signal": {
+          "eyebrow": "01 — MOVIMENTO",
+          "before": "SUA EMPRESA",
+          "accent": "NÃO PARA.",
+          "detail": "Vendas, mensagens, estoque, pessoas e metas mudam o tempo todo."
+        },
+        "fragmentation": {
+          "eyebrow": "02 — FRAGMENTAÇÃO",
+          "before": "CADA ÁREA REAGE",
+          "accent": "SOZINHA.",
+          "detail": "A operação continua, mas as partes deixam de responder umas às outras."
+        },
+        "reaction": {
+          "eyebrow": "03 — EFEITO EM CADEIA",
+          "before": "O PROBLEMA NÃO FICA",
+          "accent": "ONDE COMEÇOU.",
+          "detail": "Uma mudança local atravessa vendas, estoque, financeiro, metas e equipe."
+        },
+        "noise": {
+          "eyebrow": "04 — SOBRECARGA",
+          "before": "QUANTO MAIS SINAIS,",
+          "accent": "MENOS CONTEXTO.",
+          "detail": "A informação existe. O difícil é enxergar o que está conectado ao que."
+        },
+        "disconnect": {
+          "eyebrow": "05 — O PROBLEMA REAL",
+          "before": "NÃO FALTAM DADOS.",
+          "accent": "FALTA CONEXÃO.",
+          "detail": "Quando os sistemas não conversam, a decisão chega depois do impacto."
+        }
       }
     },
     "control": {

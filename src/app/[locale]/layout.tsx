@@ -16,6 +16,8 @@ import {
 
 import "@/app/globals.css";
 
+import "lenis/dist/lenis.css";
+
 import {
   isAppLocale,
   routing,
