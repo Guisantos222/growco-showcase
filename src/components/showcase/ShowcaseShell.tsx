@@ -3,6 +3,10 @@ import {
 } from "@/audio/SoundController";
 
 import {
+    BackToLanding,
+} from "@/components/showcase/BackToLanding";
+
+import {
     ExperienceStage,
 } from "@/components/showcase/ExperienceStage";
 
@@ -33,6 +37,8 @@ export function ShowcaseShell({
             <SoundController />
 
             <GlobalNavigation />
+
+            <BackToLanding />
 
             <ExperienceStage>
                 {children}

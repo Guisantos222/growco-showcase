@@ -13,6 +13,7 @@
       "product": "Produto",
       "demo": "Demo",
       "pricing": "Planos",
+      "app": "App",
       "cta": "Conhecer growCo.",
       "soundOn": "Som ligado",
       "soundOff": "Som desligado"
@@ -28,6 +29,29 @@
       "demoDescription": "Uma experiência interativa do sistema.",
       "pricingTitle": "Planos",
       "pricingDescription": "Estrutura clara para diferentes estágios de crescimento."
+    },
+    "backToLanding": {
+      "label": "Voltar para a growCo.",
+      "aria": "Voltar para a página inicial da growCo."
+    },
+    "footer": {
+      "headlineBefore": "Seu negócio,",
+      "headlineAccent": "conectado.",
+      "description": "Leve a clareza da operação para o bolso e acompanhe tudo em tempo real pelo app da growCo.",
+      "navigateTitle": "Navegar",
+      "linkProduct": "Produto",
+      "linkTop": "Início da experiência",
+      "linkLanding": "Site da growCo.",
+      "rights": "Todos os direitos reservados.",
+      "backToTop": "Voltar ao topo",
+      "app": {
+        "eyebrow": "APP",
+        "title": "Leve a growCo. com você",
+        "description": "Escaneie o QR code para abrir o app.",
+        "cta": "Abrir o app",
+        "qrAlt": "QR code para abrir o app da growCo.",
+        "qrPlaceholder": "Espaço reservado para o QR code do app da growCo."
+      }
     },
     "chaos": {
       "moving": "Sua empresa está em movimento.",

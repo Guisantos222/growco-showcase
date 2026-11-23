@@ -1,0 +1,1012 @@
+.stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  color: #f6fbfe;
+  background: #030508;
+  contain: paint;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 43%, rgba(11, 165, 255, 0.08), transparent 31%),
+    radial-gradient(circle at 82% 24%, rgba(62, 176, 229, 0.035), transparent 25%),
+    linear-gradient(180deg, #061118 0%, #08151c 54%, #050d12 100%);
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  background-image:
+    linear-gradient(rgba(145, 194, 216, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(145, 194, 216, 0.035) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0.46) 72%, transparent);
+}
+
+.glowA,
+.glowB {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 999px;
+}
+
+.glowA {
+  left: 30%;
+  top: 19%;
+  width: 40%;
+  height: 36%;
+  background: radial-gradient(circle, rgba(11, 165, 255, 0.055), transparent 67%);
+}
+
+.glowB {
+  right: -8%;
+  bottom: -12%;
+  width: 38%;
+  height: 42%;
+  background: radial-gradient(circle, rgba(87, 192, 239, 0.025), transparent 68%);
+}
+
+.worldViewport {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  overflow: hidden;
+  will-change: opacity;
+  contain: paint;
+}
+
+.worldScaler {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1600px;
+  height: 900px;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.worldCamera {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3200px;
+  height: 1800px;
+  transform-origin: 0 0;
+  will-change: transform;
+  backface-visibility: hidden;
+  contain: layout paint;
+}
+
+.roadsSvg,
+.flowSvg {
+  position: absolute;
+  inset: 0;
+  width: 3200px;
+  height: 1800px;
+  pointer-events: none;
+}
+
+.roadsSvg {
+  z-index: 2;
+}
+
+.flowSvg {
+  z-index: 4;
+}
+
+.sector {
+  position: absolute;
+  z-index: 7;
+  transform-origin: center bottom;
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  contain: layout paint;
+}
+
+.assetImage {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  pointer-events: none;
+}
+
+.campusSector {
+  z-index: 3;
+  left: 1110px;
+  top: 525px;
+  width: 980px;
+}
+
+.salesSector {
+  left: 330px;
+  top: 980px;
+  width: 650px;
+}
+
+.operationsSector {
+  left: 2280px;
+  top: 990px;
+  width: 560px;
+}
+
+.financeSector {
+  left: 2380px;
+  top: 330px;
+  width: 270px;
+}
+
+.intelligenceSector {
+  left: 1478px;
+  top: 675px;
+  width: 244px;
+  height: 244px;
+  z-index: 12;
+}
+
+.sectorGlow {
+  position: absolute;
+  z-index: 0;
+  left: -18%;
+  right: -18%;
+  top: 8%;
+  bottom: -13%;
+  opacity: 0;
+  background:
+    radial-gradient(
+      ellipse at 50% 62%,
+      rgba(11, 165, 255, 0.25) 0%,
+      rgba(11, 165, 255, 0.095) 34%,
+      transparent 72%
+    );
+  will-change: opacity;
+  pointer-events: none;
+}
+
+.sectorShade {
+  position: absolute;
+  z-index: 3;
+  inset: -2%;
+  opacity: 0;
+  border-radius: 28px;
+  background: rgba(2, 8, 12, 0.40);
+  will-change: opacity;
+  pointer-events: none;
+}
+
+.sectorPlatform {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  bottom: -4%;
+  width: 112%;
+  height: 38%;
+  transform: translateX(-50%) skewY(-6deg);
+  border: 1px solid rgba(126, 187, 215, 0.11);
+  border-radius: 34px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(19, 46, 59, 0.34),
+      rgba(7, 18, 25, 0.11)
+    );
+}
+
+.sectorPlatformCompact {
+  width: 135%;
+  height: 30%;
+  bottom: -7%;
+}
+
+.sectorLabel {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: -1%;
+  transform: translateX(-50%);
+  min-width: 124px;
+  padding: 7px 10px;
+  border: 1px solid rgba(125, 196, 230, 0.14);
+  border-radius: 11px;
+  background: rgba(5, 16, 22, 0.90);
+  text-align: center;
+}
+
+.sectorLabel span,
+.sectorLabel strong {
+  display: block;
+}
+
+.sectorLabel span {
+  margin-bottom: 2px;
+  color: #62c8ff;
+  font-size: 7px;
+  font-weight: 950;
+  letter-spacing: 0.14em;
+}
+
+.sectorLabel strong {
+  color: rgba(242, 250, 253, 0.87);
+  font-size: 8px;
+  font-weight: 950;
+  letter-spacing: 0.055em;
+}
+
+.corePulse {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  transform-origin: center center;
+}
+
+.coreOuterRing,
+.coreMiddleRing {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.coreOuterRing {
+  width: 92%;
+  height: 92%;
+  border: 1px solid rgba(79, 191, 245, 0.18);
+  box-shadow:
+    0 0 0 18px rgba(11, 165, 255, 0.018),
+    0 0 0 38px rgba(11, 165, 255, 0.012);
+}
+
+.coreMiddleRing {
+  width: 70%;
+  height: 70%;
+  border: 1px dashed rgba(83, 194, 247, 0.34);
+  animation: coreSpin 28s linear infinite;
+}
+
+.coreBody {
+  position: relative;
+  z-index: 2;
+  width: 53%;
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(107, 205, 255, 0.24);
+  border-radius: 27%;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(11, 165, 255, 0.17), transparent 46%),
+    linear-gradient(145deg, #0b202b, #071219);
+  box-shadow:
+    0 0 0 10px rgba(11, 165, 255, 0.025),
+    0 20px 52px rgba(0, 0, 0, 0.26);
+  transform: rotate(45deg);
+}
+
+.coreLogo,
+.coreCaption,
+.coreStatus {
+  transform: rotate(-45deg);
+}
+
+.coreLogo {
+  color: #f7fbfd;
+  font-size: 19px;
+  font-weight: 950;
+  letter-spacing: -0.065em;
+}
+
+.coreCaption {
+  margin-top: 7px;
+  color: rgba(109, 205, 255, 0.54);
+  font-size: 5px;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+}
+
+.coreStatus {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: rgba(225, 242, 249, 0.54);
+  font-size: 5px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
+.coreStatus span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #0BA5FF;
+  box-shadow: 0 0 0 4px rgba(11, 165, 255, 0.10);
+}
+
+.worker {
+  position: absolute;
+  z-index: 11;
+  transform-origin: center bottom;
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  contain: layout paint;
+}
+
+.workerHalo {
+  position: absolute;
+  z-index: 0;
+  left: -90%;
+  right: -90%;
+  top: 20%;
+  bottom: -30%;
+  opacity: 0;
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(11, 165, 255, 0.24),
+      transparent 68%
+    );
+  will-change: opacity;
+}
+
+.workerImage {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  pointer-events: none;
+}
+
+.worker_manager {
+  left: 1745px;
+  top: 1285px;
+  width: 30px;
+}
+
+.worker_finance {
+  left: 2460px;
+  top: 690px;
+  width: 27px;
+}
+
+.worker_logistics {
+  left: 905px;
+  top: 1270px;
+  width: 30px;
+}
+
+.worker_general {
+  left: 2070px;
+  top: 1285px;
+  width: 29px;
+}
+
+.workerLabel {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  bottom: -15px;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  padding: 3px 6px;
+  border: 1px solid rgba(112, 184, 218, 0.11);
+  border-radius: 999px;
+  background: rgba(5, 16, 22, 0.89);
+  color: rgba(217, 239, 248, 0.52);
+  font-size: 5px;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+}
+
+.focusPanel {
+  position: absolute;
+  z-index: 22;
+  top: 18%;
+  width: min(350px, 25vw);
+  padding: 21px;
+  opacity: 0;
+  border: 1px solid rgba(135, 196, 225, 0.13);
+  border-radius: 23px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(9, 27, 36, 0.97),
+      rgba(5, 15, 21, 0.97)
+    );
+  box-shadow:
+    0 24px 65px rgba(0, 0, 0, 0.22);
+  will-change: opacity, transform;
+}
+
+.focusPanelLeft {
+  left: 4.2%;
+}
+
+.focusPanelRight {
+  right: 4.2%;
+}
+
+.panelTopLine {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.panelEyebrow {
+  color: #64caff;
+  font-size: 8px;
+  font-weight: 950;
+  letter-spacing: 0.18em;
+}
+
+.panelSceneNumber {
+  color: rgba(211, 235, 245, 0.26);
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.panelTitle {
+  margin: 11px 0 0;
+  color: #f8fbfd;
+  font-size: clamp(22px, 2.15vw, 33px);
+  line-height: 0.97;
+  letter-spacing: -0.055em;
+}
+
+.panelBody {
+  margin: 14px 0 0;
+  color: rgba(211, 232, 241, 0.55);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.58;
+}
+
+.metricsGrid {
+  margin-top: 19px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.metricCard {
+  padding: 12px;
+  border: 1px solid rgba(145, 199, 226, 0.10);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.metricCardAccent {
+  border-color: rgba(11, 165, 255, 0.25);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(11, 165, 255, 0.13),
+      rgba(11, 165, 255, 0.035)
+    );
+}
+
+.metricLabel {
+  color: rgba(202, 228, 239, 0.40);
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.metricValue {
+  margin-top: 5px;
+  color: #f5fbff;
+  font-size: 17px;
+  font-weight: 950;
+  letter-spacing: -0.04em;
+}
+
+.sceneRail {
+  position: absolute;
+  z-index: 24;
+  left: 50%;
+  bottom: 27px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px;
+  opacity: 0;
+  border: 1px solid rgba(139, 196, 224, 0.11);
+  border-radius: 999px;
+  background: rgba(4, 13, 18, 0.90);
+  will-change: opacity, transform;
+}
+
+.sceneDot,
+.sceneDotActive {
+  display: grid;
+  min-width: 30px;
+  height: 25px;
+  place-items: center;
+  border-radius: 999px;
+  font-size: 7px;
+  font-weight: 950;
+  transition:
+    color 220ms ease,
+    background 220ms ease,
+    transform 220ms ease;
+}
+
+.sceneDot {
+  color: rgba(212, 235, 245, 0.25);
+}
+
+.sceneDotActive {
+  color: #fff;
+  background: rgba(11, 165, 255, 0.9);
+  transform: translateY(-1px);
+}
+
+.scrollProgressTrack {
+  position: absolute;
+  z-index: 25;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.scrollProgressBar {
+  width: 100%;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background: #0BA5FF;
+  box-shadow: 0 0 14px rgba(11, 165, 255, 0.40);
+}
+
+.handoffSvg {
+  position: absolute;
+  z-index: 42;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+@keyframes coreSpin {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(360deg);
+  }
+}
+
+@media (max-width: 1100px) {
+  .focusPanel {
+    width: 300px;
+    top: 15%;
+    padding: 17px;
+  }
+
+  .panelTitle {
+    font-size: 24px;
+  }
+
+  .panelBody {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 760px) {
+  .focusPanel {
+    left: 12px !important;
+    right: 12px !important;
+    top: auto;
+    bottom: 72px;
+    width: auto;
+    padding: 14px;
+  }
+
+  .panelBody {
+    display: none;
+  }
+
+  .metricsGrid {
+    margin-top: 12px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .sceneRail {
+    bottom: 19px;
+  }
+}
+
+
+/* ============================================================
+   V6 — PERFORMANCE-SAFE HIGHLIGHTS
+   ============================================================ */
+
+.sectorFocusRing {
+  position: absolute;
+  z-index: 4;
+  left: -8%;
+  right: -8%;
+  top: 4%;
+  bottom: -8%;
+  border: 1px solid rgba(107, 205, 255, 0);
+  border-radius: 30px;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.96);
+  will-change: opacity, transform;
+}
+
+.sector[data-active="true"] .sectorGlow {
+  animation:
+    sectorGlowBreath
+    2.4s
+    ease-in-out
+    infinite;
+}
+
+.sector[data-active="true"] .sectorFocusRing {
+  opacity: 0.74;
+  border-color: rgba(107, 205, 255, 0.27);
+  animation:
+    sectorRingPulse
+    2.6s
+    ease-in-out
+    infinite;
+}
+
+.sector[data-active="true"] .assetImage {
+  will-change: transform;
+  animation:
+    selectedAssetFloat
+    3.4s
+    ease-in-out
+    infinite;
+}
+
+.sector[data-active="true"] .sectorLabel {
+  animation:
+    selectedLabelFloat
+    2.8s
+    ease-in-out
+    infinite;
+}
+
+.sector[data-active="true"] .sectorPlatform {
+  border-color: rgba(11, 165, 255, 0.24);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(13, 55, 75, 0.42),
+      rgba(7, 18, 25, 0.13)
+    );
+}
+
+.intelligenceSector[data-active="true"] .coreOuterRing {
+  animation:
+    coreAuraPulse
+    2.5s
+    ease-in-out
+    infinite;
+}
+
+.intelligenceSector[data-active="true"] .coreBody {
+  box-shadow:
+    0 0 0 10px rgba(11, 165, 255, 0.035),
+    0 0 0 26px rgba(11, 165, 255, 0.015),
+    0 20px 52px rgba(0, 0, 0, 0.28);
+}
+
+.workerFocusRing {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  bottom: -7px;
+  width: 46px;
+  height: 17px;
+  transform: translateX(-50%) scale(0.8);
+  border: 1px solid rgba(107, 205, 255, 0);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity, transform;
+}
+
+.worker[data-active="true"] .workerHalo {
+  animation:
+    workerHaloBreath
+    2.2s
+    ease-in-out
+    infinite;
+}
+
+.worker[data-active="true"] .workerFocusRing {
+  opacity: 0.72;
+  border-color: rgba(107, 205, 255, 0.32);
+  animation:
+    workerRingPulse
+    2.2s
+    ease-in-out
+    infinite;
+}
+
+.worker[data-active="true"] .workerImage {
+  will-change: transform;
+  animation:
+    workerBob
+    2.7s
+    ease-in-out
+    infinite;
+}
+
+.worker[data-active="true"] .workerLabel {
+  color: rgba(229, 247, 255, 0.88);
+  border-color: rgba(11, 165, 255, 0.24);
+  background: rgba(4, 22, 31, 0.94);
+}
+
+.flowSignal {
+  will-change:
+    stroke-dashoffset,
+    opacity;
+  animation-play-state: paused;
+}
+
+.flowSignal[data-active="true"] {
+  animation:
+    signalTravel
+    1.65s
+    linear
+    infinite;
+  animation-play-state: running;
+}
+
+.gatewayPulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation:
+    gatewayPulse
+    3s
+    ease-in-out
+    infinite;
+}
+
+.panelContent {
+  animation:
+    panelSceneIn
+    380ms
+    cubic-bezier(
+      0.2,
+      0.8,
+      0.2,
+      1
+    )
+    both;
+}
+
+.metricCardAccent {
+  position: relative;
+  overflow: hidden;
+}
+
+.metricCardAccent::after {
+  content: "";
+  position: absolute;
+  left: -45%;
+  top: 0;
+  width: 34%;
+  height: 100%;
+  opacity: 0.22;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(154, 223, 255, 0.40),
+      transparent
+    );
+  transform: skewX(-18deg);
+  animation:
+    metricSheen
+    4.4s
+    ease-in-out
+    infinite;
+}
+
+@keyframes sectorGlowBreath {
+  0%,
+  100% {
+    transform: scale(0.96);
+  }
+
+  50% {
+    transform: scale(1.055);
+  }
+}
+
+@keyframes sectorRingPulse {
+  0%,
+  100% {
+    opacity: 0.42;
+    transform: scale(0.965);
+  }
+
+  50% {
+    opacity: 0.78;
+    transform: scale(1.018);
+  }
+}
+
+@keyframes selectedAssetFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -4px, 0);
+  }
+}
+
+@keyframes selectedLabelFloat {
+  0%,
+  100% {
+    transform:
+      translateX(-50%)
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateX(-50%)
+      translateY(-3px);
+  }
+}
+
+@keyframes coreAuraPulse {
+  0%,
+  100% {
+    opacity: 0.74;
+    transform:
+      translate(-50%, -50%)
+      scale(0.98);
+  }
+
+  50% {
+    opacity: 1;
+    transform:
+      translate(-50%, -50%)
+      scale(1.055);
+  }
+}
+
+@keyframes workerHaloBreath {
+  0%,
+  100% {
+    transform: scale(0.90);
+  }
+
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+@keyframes workerRingPulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform:
+      translateX(-50%)
+      scale(0.80);
+  }
+
+  50% {
+    opacity: 0.82;
+    transform:
+      translateX(-50%)
+      scale(1.10);
+  }
+}
+
+@keyframes workerBob {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+@keyframes signalTravel {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -154;
+  }
+}
+
+@keyframes gatewayPulse {
+  0%,
+  100% {
+    opacity: 0.20;
+    transform: scale(0.86);
+  }
+
+  50% {
+    opacity: 0.62;
+    transform: scale(1.16);
+  }
+}
+
+@keyframes panelSceneIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes metricSheen {
+  0%,
+  62% {
+    transform:
+      translateX(0)
+      skewX(-18deg);
+  }
+
+  82%,
+  100% {
+    transform:
+      translateX(520%)
+      skewX(-18deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sector[data-active="true"] .sectorGlow,
+  .sector[data-active="true"] .sectorFocusRing,
+  .sector[data-active="true"] .assetImage,
+  .sector[data-active="true"] .sectorLabel,
+  .intelligenceSector[data-active="true"] .coreOuterRing,
+  .worker[data-active="true"] .workerHalo,
+  .worker[data-active="true"] .workerFocusRing,
+  .worker[data-active="true"] .workerImage,
+  .flowSignal[data-active="true"],
+  .gatewayPulse,
+  .metricCardAccent::after,
+  .panelContent {
+    animation: none !important;
+  }
+}

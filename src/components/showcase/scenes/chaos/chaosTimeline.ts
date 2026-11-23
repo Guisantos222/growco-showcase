@@ -26,10 +26,10 @@
  */
 
 export const CHAOS_RUNWAY_VH =
-  2700;
+  3000;
 
 export const CHAOS_SCENE_COUNT =
-  27;
+  30;
 
 export const CHAOS_SCENE_SPAN =
   1 /
@@ -119,6 +119,12 @@ export const CHAOS_SCENE = {
   coreResolve: 25,
 
   brand: 26,
+
+  liquidHold: 27,
+liquidRise: 28,
+liquidCover: 29,
+
+
 
   /*
    * ==========================================================
@@ -671,6 +677,59 @@ export const CHAOS_FINAL_ACT = {
     ),
 
   brandEnd:
+    chaosSceneStart(
+    CHAOS_SCENE.liquidHold,
+    ),
+} as const;
+
+export const CHAOS_LIQUID_ACT = {
+  /*
+   * A tinta só passa a existir
+   * depois de um bom tempo olhando
+   * para o lockup final da growCo.
+   */
+
+  visibleStart:
+    chaosPoint(
+      CHAOS_SCENE.liquidHold,
+      0.62,
+    ),
+
+  /*
+   * Começa efetivamente a subir.
+   */
+
+  riseStart:
+    chaosPoint(
+      CHAOS_SCENE.liquidHold,
+      0.68,
+    ),
+
+  /*
+   * Atravessa praticamente duas cenas.
+   *
+   * Isso dá ~180vh de scroll para a subida,
+   * então fica lenta e cinematográfica.
+   */
+
+  riseEnd:
+    chaosPoint(
+      CHAOS_SCENE.liquidCover,
+      1,
+    ),
+
+  /*
+   * Daqui até o fim do CHAOS,
+   * a tela permanece totalmente coberta.
+   */
+
+  coverStart:
+    chaosPoint(
+      CHAOS_SCENE.liquidCover,
+      0.52,
+    ),
+
+  coverEnd:
     1,
 } as const;
 

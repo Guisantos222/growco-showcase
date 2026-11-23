@@ -35,16 +35,12 @@ export function GlobalNavigation() {
         </a>
 
         <div className="hidden items-center gap-1 md:flex">
-          <NavLink href="#product">
+          <NavLink href="#produto">
             {t("product")}
           </NavLink>
 
-          <NavLink href="#demo">
-            {t("demo")}
-          </NavLink>
-
-          <NavLink href="#pricing">
-            {t("pricing")}
+          <NavLink href="#footer">
+            {t("app")}
           </NavLink>
         </div>
 
@@ -54,7 +50,7 @@ export function GlobalNavigation() {
           <LanguageControl />
 
           <a
-            href="#demo"
+            href="#footer"
             className="ml-1 hidden items-center gap-2 rounded-full bg-[#0BA5FF] px-4 py-2 text-xs font-semibold text-white transition hover:scale-[1.02] md:flex"
           >
             {t("cta")}

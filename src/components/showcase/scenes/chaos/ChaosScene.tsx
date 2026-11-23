@@ -3,10 +3,10 @@ import {
     CHAOS_RUNWAY_VH,
 } from "@/components/showcase/scenes/chaos/chaosTimeline";
 
-import {
-    ChaosWorldHandoff,
-} from "@/components/showcase/scenes/chaos/ChaosWorldHandoff";
 
+import {
+  ControlLiquidInk,
+} from "@/components/showcase/scenes/control/ControlLiquidInk";
 
 import {
     ChaosNarrativeOverlay,
@@ -1385,6 +1385,15 @@ export function ChaosScene() {
                         runtime.reducedMotion
                     }
                 />
+
+        <ControlLiquidInk
+  progressRef={
+    director.progress
+  }
+  reducedMotion={
+    runtime.reducedMotion
+  }
+/>
 
                 {/* ====================================================== */}
                 {/* ATMOSPHERE                                             */}

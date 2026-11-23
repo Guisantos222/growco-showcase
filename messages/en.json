@@ -13,6 +13,7 @@
       "product": "Product",
       "demo": "Demo",
       "pricing": "Pricing",
+      "app": "App",
       "cta": "Get growCo.",
       "soundOn": "Sound on",
       "soundOff": "Sound off"
@@ -28,6 +29,29 @@
       "demoDescription": "An interactive experience of the system.",
       "pricingTitle": "Pricing",
       "pricingDescription": "A clear structure for different stages of growth."
+    },
+    "backToLanding": {
+      "label": "Back to growCo.",
+      "aria": "Back to the growCo. home page"
+    },
+    "footer": {
+      "headlineBefore": "Your business,",
+      "headlineAccent": "connected.",
+      "description": "Take operational clarity with you and follow everything in real time through the growCo. app.",
+      "navigateTitle": "Navigate",
+      "linkProduct": "Product",
+      "linkTop": "Start of the experience",
+      "linkLanding": "growCo. website",
+      "rights": "All rights reserved.",
+      "backToTop": "Back to top",
+      "app": {
+        "eyebrow": "APP",
+        "title": "Take growCo. with you",
+        "description": "Scan the QR code to open the app.",
+        "cta": "Open the app",
+        "qrAlt": "QR code to open the growCo. app",
+        "qrPlaceholder": "Placeholder for the growCo. app QR code"
+      }
     },
     "chaos": {
       "moving": "Your business is moving.",
