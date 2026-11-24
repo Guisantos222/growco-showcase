@@ -50,7 +50,7 @@ export function GlobalNavigation() {
           <LanguageControl />
 
           <a
-            href="#footer"
+            href={process.env.NEXT_PUBLIC_GROWCO_LANDING_URL || "/"}
             className="ml-1 hidden items-center gap-2 rounded-full bg-[#0BA5FF] px-4 py-2 text-xs font-semibold text-white transition hover:scale-[1.02] md:flex"
           >
             {t("cta")}
